@@ -11,7 +11,7 @@
                 <h3>{{subscribeTitle}}</h3>
             </div>
             <div class="col-3">
-                <h3>{{mapTitle}}</h3>
+                <div class="logo">{{logoTitle}}</div>
             </div>
         </div>
         <div class="copyrights">
@@ -22,6 +22,8 @@
 
 <script>
 // import
+//import bus from '../main'
+
 export default {
     props: ['navication'],
     data() {
@@ -29,10 +31,17 @@ export default {
             copyrights: 'All Rights Reserved. Designed by Fadi Asharma.',
             navTitle: 'Navication',
             subscribeTitle: 'Subscribe',
-            mapTitle: 'Map',
+            logoTitle: 'Logo',
 
         }
-    }
+    },
+
+    created() {
+        //bus.$on('changeLogoText', (data) => {
+          //  this.logoTitle = data;
+        //})
+    //},
+}
 }
 </script>
 

@@ -2,21 +2,26 @@
     <header>
         <div class="header-container">
             <div class="col-3">
-                <div class="logo">{{logoTitle}}</div>
+                <div class="logo" v-on:click="changeLogo">{{logoTitle}}</div>
             </div>
             <div class="col-3">
                 <ul>
-                    <li v-for="(nav, index) in navication" v-bind:key="index">{{ nav }}</li>
+                    <li v-for="(nav, index) in navication" v-bind:key="index" v-on:click="changeMenuItem">{{ nav }}</li>
                 </ul>
             </div>
             <div class="col-3">
-                <div class="search">{{SearchTitle}}</div>
+                <div class="search">
+                    <button v-on:click="deleteNavItem">Pop the navication items</button>
+                    <!-- <button v-on:click="deleteMenuItem">Pop menu items</button> -->
+                </div>
             </div>
         </div>
+
     </header>
 </template>
 
 <script>
+//import { bus } from '../main'
 export default {
     props: ['navication'],
     data() {
@@ -24,6 +29,20 @@ export default {
             logoTitle: 'Logo',
             SearchTitle: 'Search'
         }
+    },
+    methods: {
+        deleteNavItem: function() {
+            this.navication.pop()
+        },
+        changeMenuItem: function() {
+            this.navication = 'Tickd'
+            //this.titlChange
+            //bus.$emit('titlChange', 'Ticked')
+        },
+        //changeLogo: function() {
+          //  this.logoTitle = 'clicked'
+            //bus.$emit('changeLogoText', 'clicked');
+        //}
     }
 }
 </script>

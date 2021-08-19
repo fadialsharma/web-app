@@ -2,9 +2,9 @@
 import Vue from 'vue'
 // import app.vue root component to our main.js file
 import App from './App.vue'
-import navs from './components/navication.vue'
 
-Vue.component('navication', navs);
+// for $emiting data between header and footer
+
 
 Vue.config.productionTip = false
 
