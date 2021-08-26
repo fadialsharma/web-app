@@ -2,7 +2,7 @@
     <header>
         <div class="header-container">
             <div class="col-3">
-                <div class="logo" v-on:click="changeLogo">{{logoTitle}}</div>
+                <div class="logo" @click="changeLogo()">{{logoTitle}}</div>
             </div>
             <div class="col-3">
                 <ul>
@@ -23,10 +23,12 @@
 <script>
 //import { bus } from '../main'
 export default {
-    props: ['navication'],
+    props: {
+      navication: Array,
+      logoTitle: String
+    },
     data() {
         return {
-            logoTitle: 'Logo',
             SearchTitle: 'Search'
         }
     },
@@ -36,14 +38,36 @@ export default {
         },
         changeMenuItem: function() {
             this.navication = 'Tickd'
-            //this.titlChange
-            //bus.$emit('titlChange', 'Ticked')
         },
-        //changeLogo: function() {
-          //  this.logoTitle = 'clicked'
-            //bus.$emit('changeLogoText', 'clicked');
-        //}
-    }
+        changeLogo: function() {
+           // this.logoTitle = 'clicked'
+          console.log('clicked will be the new name of the logo', );
+          this.$emit('change-logo-text', 'clicked');
+        }
+    },
+    // Life cycle hooks
+    beforeCreate() {
+        // Fire code before the inst created
+        // alert(" Life Cycle hook beforeCreate");
+    },
+    created() {
+        // Fire when component gets created. Good for fetching data
+        // alert(" Life Cycle hook Created");
+    },
+    beforeMount (){
+        // Fire before mounting the DOM
+        // alert(" Life Cycle hook beforeMounted");
+    },
+    mounted() {
+        // Fire when the DOM mounted. Good for minipulated the DOM once it's mounted
+        // alert(" Life Cycle hook Mounted");
+    },
+    beforeUpdate() {
+        alert(" Life Cycle hook beforeUpdated");
+    },
+    updated() {
+        alert(" Life Cycle hook updated");
+    },
 }
 </script>
 
