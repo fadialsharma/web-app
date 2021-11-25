@@ -4,40 +4,23 @@
     <form>
       <label>Blog Title:</label>
       <input
-        type="text"
-        v-model="blog.title"
-        placeholder="Blog title"
-        required
+        type="text" v-model="blog.title" placeholder="Blog title" required
       />
       <label>Blog content:</label>
       <!-- using lazy -->
-      <textarea
-        v-model.lazy="blog.content"
-        placeholder="Blog content"
-      ></textarea>
+      <textarea v-model.lazy="blog.content" placeholder="Blog content"></textarea>
       <div id="checkboxes">
-        <input
-          type="checkbox"
-          value="Agree to tearms and conditions"
-          v-model="blog.terms"
-          required
-        />
+        <input type="checkbox" value="Agree to tearms and conditions" v-model="blog.terms" required />
         <label>Agree to tearms and conditions</label>
-        <input
-          type="checkbox"
-          value="Agree to receive emails"
-          v-model="blog.terms"
-          required
-        />
+        <input type="checkbox" value="Agree to receive emails" v-model="blog.terms"
+          required />
         <label>Agree to receive emails</label>
       </div>
-
       <select v-model="blog.author">
         <option v-for="(author, index) in authors" v-bind:key="index">
           {{ author }}
         </option>
       </select>
-
       <button v-on:click.prevent="addBlog">Add Blog</button>
     </form>
     <div id="preview">
@@ -72,17 +55,16 @@ export default {
   },
   methods: {
     addBlog: function() {
-      this.$http
-        .post("http://jsonplaceholder.typicode.com/posts", {
+      this.$http .post("http://jsonplaceholder.typicode.com/posts",
+      {
           userId: 1,
           id: 1,
           title: this.blog.title,
           content: this.blog.content,
-          terms: this.blog.terms,
           author: this.blog.author,
+          terms: this.blog.terms,
           completed: false,
-        })
-        .then(function(data) {
+        }).then(function(data) {
           console.log(data);
         });
     },
@@ -98,7 +80,6 @@ export default {
   padding: 0 20px;
   box-sizing: border-box;
 }
-
 label {
   display: block;
   margin: 20px 0 10px;
@@ -123,4 +104,3 @@ textarea {
   margin-left: 10px;
 }
 </style>
-
