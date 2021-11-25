@@ -3,9 +3,12 @@ import Vue from 'vue'
 // import app.vue root component to our main.js file
 import App from './App.vue'
 
-// for $emiting data between header and footer
+// Import Vue Resource package for HTTP request
+import VueResource from 'vue-resource'
+Vue.use(VueResource);
 
-
+// Register component
+// Vue.component('app-component', component);
 Vue.config.productionTip = false
 
 new Vue({
