@@ -29,7 +29,6 @@ import Footer from "./components/Footer.vue";
 import Signup from "./components/Signup.vue";
 import LoginForm from "./components/LoginForm.vue";
 import AddBlog from "./components/AddBlog.vue";
-import InBody from "./components/InBody.vue";
 
 export default {
   data() {
@@ -46,7 +45,6 @@ export default {
     "app-signup": Signup,
     "app-loginForm": LoginForm,
     "add-blog": AddBlog,
-    "app-InBody": InBody
   },
   methods: {
     changeLogoFromApp(newName) {

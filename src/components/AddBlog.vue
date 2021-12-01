@@ -1,7 +1,7 @@
 <template>
   <div id="add-blog">
     <h3>{{ title }}</h3>
-    <form>
+    <form v-if="!submitted">
       <label>Blog Title:</label>
       <input
         type="text" v-model="blog.title" placeholder="Blog title" required
@@ -23,6 +23,11 @@
       </select>
       <button v-on:click.prevent="addBlog">Add Blog</button>
     </form>
+
+    <div v-if="submitted">
+      <h3>Blog has submitted</h3>
+    </div>
+
     <div id="preview">
       <h3>{{ preview }}</h3>
       <p>Blog title: {{ blog.title }}</p>
@@ -51,11 +56,12 @@ export default {
         author: "",
       },
       authors: ["Fadi", "Salam"],
+      submitted: false
     };
   },
   methods: {
     addBlog: function() {
-      this.$http .post("http://jsonplaceholder.typicode.com/posts",
+      this.$http.post("http://jsonplaceholder.typicode.com/posts",
       {
           userId: 1,
           id: 1,
@@ -66,6 +72,7 @@ export default {
           completed: false,
         }).then(function(data) {
           console.log(data);
+          this.submitted = true
         });
     },
   },
