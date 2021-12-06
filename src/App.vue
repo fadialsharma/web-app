@@ -10,11 +10,11 @@
       <button v-on:click="component = 'app-signup' ">Signup form</button>
       <button v-on:click="component = 'app-loginForm' ">Login Form</button>
       <button v-on:click="component = 'add-blog' ">Add blog</button>
+      <button v-on:click="component = 'show-blogs' ">Show blogs</button>
       <keep-alive>
         <component v-bind:is="component"></component>
       </keep-alive>
     </div>
-    <app-InBody />
 
     <app-footer v-bind:navication="navication" />
   </div>
@@ -29,6 +29,7 @@ import Footer from "./components/Footer.vue";
 import Signup from "./components/Signup.vue";
 import LoginForm from "./components/LoginForm.vue";
 import AddBlog from "./components/AddBlog.vue";
+import ShowBlogs from "./components/ShowBlogs.vue";
 
 export default {
   data() {
@@ -45,6 +46,7 @@ export default {
     "app-signup": Signup,
     "app-loginForm": LoginForm,
     "add-blog": AddBlog,
+    "show-blogs": ShowBlogs,
   },
   methods: {
     changeLogoFromApp(newName) {
