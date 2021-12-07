@@ -3,7 +3,7 @@
     <h3>Show blogs</h3>
     <p>Fetch data from dummy api</p>
         <div v-for="(blog, index) in blogs" v-bind:key="index" class="single-blog">
-          <h4>{{ blog.title }}</h4>
+          <h4 v-rainbow>{{ blog.title }}</h4>
           <article>{{ blog.body }}</article>
         </div>
     </div>
